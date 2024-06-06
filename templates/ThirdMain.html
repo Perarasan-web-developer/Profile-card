@@ -1,0 +1,19 @@
+{% load static %}
+{% comment %} {% load static tailwind_tags %} {% endcomment %}
+<head>
+<link rel="stylesheet" href="{% static 'style/main.css' %}">
+{% comment %} <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"> {% endcomment %}
+{% comment %} {% tailwind_css %} {% endcomment %}
+</head>
+{% comment %} <h1>This is the main template  </h1> {% endcomment %}
+{% include 'secondMain.html'%}
+
+{% block content %}
+
+{% endblock content %}
+<div class="footer">
+    <p>Created by &hearts;Perarasan&hearts; &copy;Copy 2024</p>
+</div>
+

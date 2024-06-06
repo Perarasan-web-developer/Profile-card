@@ -1,0 +1,121 @@
+{% extends 'ThirdMain.html'%}
+
+<body>
+{% block content %}
+<div>
+    <div class="search-input">
+        <div class="search-main">
+        <div class="search-heading">
+        <h1>SEARCH FOR PROJECTS</h1>
+        </div>
+        <div class="search-position">
+            <form action="{% url 'add' %}" method="GET">
+                <input placeholder="Search the Projects" name="search_project_query"  value="{{search_project_query}}">
+                <button>Search</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <hr>
+</div>
+<div>
+    <div class="main-container">
+        <div class="card-container">
+            {% for i in projects %}
+            <a href="{% url 'abc' i.id%}" class="a-project"><div class="card">
+                <img class="body-img" width="300px" height="150px"src="{{i.image}}"></img>
+                <div class="card-body">
+                    <h1>{{i.title}}</h1>
+                    <h5>By kelvin</h5>
+                    <p><span>{{i.Vote_ratio}}%</span> Positive feedback({{i.Vote_total}})</p>
+                    {% for x in i.Tags.all %}
+                    <li>{{x}}</li>
+                    {% endfor %}
+                </div>
+                <div class="card-footer">
+                    {% comment %} <button><a href="{% url 'abc' i.id%}">View</a></button>
+                     {% endcomment %}
+                    <button><a href="{% url 'updateproject' i.id %}">Update</a></button>
+                    <button><a href="{% url 'deleteproject' i.id %}">Delete</a></button>
+                </div>
+            </div></a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if projects.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ projects.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+            </span>
+    
+            {% if projects.has_next %}
+                <a href="?page={{ projects.next_page_number }}">next</a>
+                <a href="?page={{ projects.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock content %}
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% block content %}
+<h1>PROJECT TEMPLATE </h1>
+{% if age > 8 %}
+    <p>greater</p>
+{% elif age == 8 %}
+    <p>equal</p>
+{%else%}
+    <p>lesser</p>
+{% endif%}
+{% for x in name %}
+<p>{{x}}</p>
+{% endfor %}
+{% endblock content %} {% endcomment %}
+
+
+
+
+{% comment %} {{val}}
+<p>A document used in electronic or paper media that has a pre-determined page layout and style, 
+    which can be edited to produce the required finished document. A template will indicate where specific page elements are 
+    to be inserted and may include standard text or images as required. They are designed to save time the layout doesn't have to 
+    be set up from scratch each time and allow for the production of many new documents based on an existing design, pattern, or style.
+
+    In label printing, templates are used to design labels; they take the form of a document that contains the layout 
+    of a sheet of labels or the outline of a single label. Each outline is then filled in with the required label design. 
+    A label template allows a user to begin designing their labels immediately, without having to first set up a grid or outline 
+    that matches their labels exactly. It can also be used to save label designs or to create new labels that are based on an 
+    existing design that simply need a few updates or different information. Label templates can be designed with all of the 
+    required information included in the design or can be used together with a mail merge tool, whereby variable information 
+    is added to each label when the template is merged with a data source.</P> {% endcomment %}

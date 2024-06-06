@@ -1,0 +1,16 @@
+{% extends 'ThirdMain.html'%}
+{% block content %}
+<div class="project-head">
+    <div class="project-main">
+        <h1> Project form</h1>
+        <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="submit-option">
+                <input type="submit"></input>
+                <button><a href={% url 'add' %}>Back</a></button>
+            </div>
+        </form>
+    <div>
+</div>
+{% endblock content%}

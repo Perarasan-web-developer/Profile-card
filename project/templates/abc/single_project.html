@@ -1,0 +1,23 @@
+{% extends 'ThirdMain.html'%}
+{% block content %}
+<div class="view-container">
+    <div class="view-main">
+        <div class="technical_tools">
+            <h1>Technical Tools</h1>
+            {% for i in Tags %}
+            <h5>{{i}}</h5>
+            {% endfor %}
+        </div>
+        <div class="view-description">
+            <h1>{{pid.title}}</h1>
+            <img src="{{pid.image.url}}">
+            <h1 class="description1">Description</h1>
+            <p>{{pid.description}}</p>
+        </div>
+    </div>
+    <div class="feedback">
+        <h1>Feedback</h1>
+        <p><span>{{pid.Vote_ratio}}%</span> Positive feedback({{pid.Vote_total}})</p>
+    </div>
+</div>
+{% endblock content%}

@@ -1,0 +1,9 @@
+{% comment %} {% extends 'main.html'%} {% endcomment %}
+{% block content %}
+<form method='POST'>
+    {% csrf_token %}
+    <p>Are you sure! Delete this Project</p>
+    <input type='submit' value='confrim'>
+    <button><a href={% url 'add' %} >Back</a></button>
+</form>
+{% endblock content %}

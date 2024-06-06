@@ -1,0 +1,21 @@
+{% load static %}
+<div class="header-main">
+  <div>
+   <a href="{% url 'profiles' %}"><img class="nav-logo" src="{% static 'image/logo.jpg'%}" alt="logo"></img></a>
+  </div>
+   <div class="nav-list">
+         <li><a href="{% url 'profiles' %}"><h4>Developer</h4></a></li>
+         <li><a href="{% url 'add' %}"><h4>Project</h4></a></li>
+         <li><a href="{% url 'inbox' %}"><h4>Inbox</h4></a></li>
+        
+         <li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'account' %}"><h4>My Account</h4></a></li>
+            <li><button><a href="{% url 'create-project' %}">ADD PROJECT<a></button></li>
+            <button><a href="{% url 'logout' %}">Logout</a></button>
+            {% else %}
+            <button><a href="{% url 'login' %}">Login</a></button>
+            {%endif %}
+      </li>
+   </div>
+</div>
